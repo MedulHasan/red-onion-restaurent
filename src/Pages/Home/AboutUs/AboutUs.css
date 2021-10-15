@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap');
+
+.about-us-container {
+    font-family: 'Scheherazade New', serif;
+    margin: 30px 10%;
+    text-align: center;
+}
+.about-us-head {
+    width: 500px;
+    margin-left: 30px;
+    text-align: left;
+}
+.about-us {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 80px;
+}
+.body-card {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 30px;
+    text-align: left;
+}
+.body-card img {
+    width: 30px;
+    height: 30px;
+}
+.body-card p {
+    width: 270px;
+}
+@media only screen and (max-width: 1330px) {
+    .about-us {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .body-card {
+        margin-left: 70px;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .about-us {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .body-card {
+        margin-left: 100px;
+    }
+}
