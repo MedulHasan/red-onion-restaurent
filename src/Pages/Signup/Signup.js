@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAuth, updateProfile } from 'firebase/auth';
 import './Signup.css';
 import loginLogo from '../../images/logo2.png'
 import { Button, Form } from 'react-bootstrap';
@@ -7,6 +8,7 @@ import { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 
 const Signup = () => {
+    const auth = getAuth();
     const { signUpUsingEmailAndPassword } = useAuth();
     const history = useHistory();
     const location = useLocation();
@@ -34,7 +36,9 @@ const Signup = () => {
         if (password === confirmPassword) {
             signUpUsingEmailAndPassword(email, password)
                 .then((result) => {
-                    console.log(result.user);
+                    updateProfile(auth.currentUser, { displayName: name })
+                        .then((result) => { })
+                    // console.log(result.user);
                     history.push(redirect_url)
                 })
         }

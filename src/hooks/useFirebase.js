@@ -18,11 +18,11 @@ const useFirebase = () => {
     }
 
     const signUpUsingEmailAndPassword = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const signInUsingEmailAndPassword = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     //observe user state change
