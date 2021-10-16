@@ -6,8 +6,10 @@ import { HashLink } from 'react-router-hash-link';
 
 import Brand from '../../../images/logo2.png';
 import './Header.css'
+import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
+    const { user, logOut } = useAuth();
     return (
         <Navbar className="header" bg="light" expand="lg">
             <Container>
@@ -20,12 +22,20 @@ const Header = () => {
                         <Nav.Link href="#home">
                             <FontAwesomeIcon icon={faCartPlus} />
                         </Nav.Link>
-                        <Nav.Link href="#home">Login</Nav.Link>
-                        <Nav.Link className="sign-up" href="#link">Sign up</Nav.Link>
+                        {
+                            user?.email ? (
+                                <Nav.Link as={HashLink} to="/" onClick={logOut}>Logout</Nav.Link>
+                            ) : (
+                                <>
+                                    <Nav.Link as={HashLink} to="/login">Login</Nav.Link>
+                                    <Nav.Link className="sign-up" as={HashLink} to="/signup">Sign up</Nav.Link>
+                                </>
+                            )
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
     );
 };
 

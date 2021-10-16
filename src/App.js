@@ -8,8 +8,10 @@ import Dinner from './Pages/Home/Meals/Dinner/Dinner';
 import Lunch from './Pages/Home/Meals/Lunch/Lunch';
 import Navigation from './Pages/Home/Meals/Navigation/Navigation';
 import ItemDetails from './Pages/ItemDetails/ItemDetails';
+import Login from './Pages/Login/Login';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
+import Signup from './Pages/Signup/Signup';
 
 function App() {
   return (
@@ -41,6 +43,12 @@ function App() {
               <Navigation />
               <Dinner />
               <AboutUs />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/signup">
+              <Signup />
             </Route>
             <Route path="/item-details/:id">
               <ItemDetails />
