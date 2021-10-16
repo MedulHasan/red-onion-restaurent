@@ -4,6 +4,7 @@
         "img": "https://i.ibb.co/yVYC8By/breakfast1.png",
         "title": "Bagel and cream cheese",
         "body": "How we dream about our future",
+        "description": "This is the most popular of all chicken breast recipes that I’ve ever published. It’s a JUICY Oven Baked Chicken Breast sprinkled with a magic simple seasoning then baked until caramelised. It’s simple, fast and incredibly tasty!",
         "price": "6.99"
     },
     {
@@ -11,6 +12,7 @@
         "img": "https://i.ibb.co/4NQ9XFP/breakfast2.png",
         "title": "Breakfast sandwich",
         "body": "How we dream about our future",
+        "description": "This is the most popular of all chicken breast recipes that I’ve ever published. It’s a JUICY Oven Baked Chicken Breast sprinkled with a magic simple seasoning then baked until caramelised. It’s simple, fast and incredibly tasty!",
         "price": "9.99"
     },
     {
@@ -18,12 +20,14 @@
         "img": "https://i.ibb.co/X7Sm1pn/breakfast3.png",
         "title": "Baked Chicken",
         "body": "How we dream about our future",
+        "description": "This is the most popular of all chicken breast recipes that I’ve ever published. It’s a JUICY Oven Baked Chicken Breast sprinkled with a magic simple seasoning then baked until caramelised. It’s simple, fast and incredibly tasty!",
         "price": "10.99"
     },
     {
         "id": 4,
         "img": "https://i.ibb.co/99v6rdW/breakfast4.png",
         "title": "Eggs Benedict",
+        "description": "This is the most popular of all chicken breast recipes that I’ve ever published. It’s a JUICY Oven Baked Chicken Breast sprinkled with a magic simple seasoning then baked until caramelised. It’s simple, fast and incredibly tasty!",
         "body": "How we dream about our future",
         "price": "8.99"
     },
@@ -32,6 +36,7 @@
         "img": "https://i.ibb.co/r0TqfJC/breakfast5.png",
         "title": "Toast croissant egg",
         "body": "How we dream about our future",
+        "description": "This is the most popular of all chicken breast recipes that I’ve ever published. It’s a JUICY Oven Baked Chicken Breast sprinkled with a magic simple seasoning then baked until caramelised. It’s simple, fast and incredibly tasty!",
         "price": "19.99"
     },
     {
@@ -39,6 +44,7 @@
         "img": "https://i.ibb.co/WDWjBPb/breakfast6.png",
         "title": "Full Breakfast Fried Egg Toast Brunch",
         "body": "How we dream about our future",
+        "description": "This is the most popular of all chicken breast recipes that I’ve ever published. It’s a JUICY Oven Baked Chicken Breast sprinkled with a magic simple seasoning then baked until caramelised. It’s simple, fast and incredibly tasty!",
         "price": "3.99"
     }
 ]

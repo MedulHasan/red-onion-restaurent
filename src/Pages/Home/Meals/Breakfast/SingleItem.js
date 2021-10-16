@@ -2,11 +2,16 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import './SingleItem.css'
 
+
+
 const SingleItem = ({ item }) => {
     const { id, img, title, body, price } = item;
     const history = useHistory();
     const handle = () => {
-        history.push(`/item-details/${id}`)
+        history.push({
+            pathname: `/item-details/${id}`,
+            state: { item },
+        });
     }
 
     return (

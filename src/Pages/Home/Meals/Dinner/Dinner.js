@@ -3,7 +3,6 @@ import SingleItem from '../Breakfast/SingleItem';
 
 const Dinner = () => {
     const [dinner, setDinner] = useState([]);
-
     useEffect(() => {
         fetch('meals/dinner.json')
             .then(res => res.json())
