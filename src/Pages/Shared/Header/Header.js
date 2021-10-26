@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Badge, Container, Nav, Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { HashLink } from 'react-router-hash-link';
@@ -7,8 +7,10 @@ import { HashLink } from 'react-router-hash-link';
 import Brand from '../../../images/logo2.png';
 import './Header.css'
 import useAuth from '../../../hooks/useAuth';
+import { useOrder } from '../../../context/OrderProvider';
 
 const Header = () => {
+    const { order } = useOrder();
     const { user, logOut } = useAuth();
     return (
         <Navbar className="header" bg="light" expand="lg">
@@ -19,9 +21,13 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link href="#home">
-                            <FontAwesomeIcon icon={faCartPlus} />
+                        <Nav.Link as={HashLink} to="/take-order">
+                            <FontAwesomeIcon className="cart-icon position-relative" icon={faCartPlus} />
+                            <span class="badge position-absolute translate-middle bg-danger border border-light">
+                                {order.length}
+                            </span>
                         </Nav.Link>
+                        <Nav.Link as={HashLink} to="/">Home</Nav.Link>
                         {
                             user?.email ? (
                                 <>

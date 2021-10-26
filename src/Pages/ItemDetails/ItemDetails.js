@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import './ItemDetails.css';
 import { useOrder } from '../../context/OrderProvider';
 
@@ -10,6 +10,7 @@ const ItemDetails = () => {
     const location = useLocation();
     const history = useHistory();
     const [singleItem, setSingleItem] = useState({});
+    const [move, setMove] = useState(false);
     const [itemQuantity, setItemQuantity] = useState(1);
 
     const { addOrder } = useOrder();
@@ -47,9 +48,17 @@ const ItemDetails = () => {
     const handleBack = () => {
         history.goBack();
     }
+    const handleForward = () => {
+        history.goForward();
+    }
     return (
         <>
-            <button className="back-btn" onClick={handleBack}><FontAwesomeIcon icon={faArrowLeft} /></button>
+            <div className="move-btn">
+                <button className="back-btn" onClick={handleBack}><FontAwesomeIcon className="me-1" icon={faChevronLeft} />Back</button>
+                {
+                    move ? (<button className="back-btn" onClick={handleForward}>Forward<FontAwesomeIcon className="ms-1" icon={faChevronRight} /></button>) : ''
+                }
+            </div>
             <div className="single-item-container">
                 <div className="left-item">
                     <h1>{singleItem.title}</h1>

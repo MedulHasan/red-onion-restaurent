@@ -1,10 +1,15 @@
+.move-btn {
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
 .back-btn {
-    position: absolute;
-    left: 10%;
-    top: 25%;
-    border-radius: 50px;
+    border: none;
     font-size: larger;
     background-color: #fff;
+}
+.back-btn:hover {
+    text-decoration: underline;
 }
 .single-item-container{
     display: flex;
