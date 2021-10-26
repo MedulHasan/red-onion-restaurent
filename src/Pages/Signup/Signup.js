@@ -7,6 +7,9 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Signup = () => {
     const auth = getAuth();
     const { signUpUsingEmailAndPassword } = useAuth();
@@ -18,6 +21,8 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
+    const notify = () => toast.success("Registration Successfully!");
 
     const handleName = (e) => {
         setName(e.target.value)
@@ -37,11 +42,11 @@ const Signup = () => {
             signUpUsingEmailAndPassword(email, password)
                 .then((result) => {
                     updateProfile(auth.currentUser, { displayName: name })
-                        .then((result) => { })
-                    // console.log(result.user);
+                        .then(() => { })
                     history.push(redirect_url)
                 })
         }
+        notify();
 
     }
     return (

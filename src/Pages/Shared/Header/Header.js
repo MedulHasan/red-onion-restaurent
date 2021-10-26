@@ -14,7 +14,7 @@ const Header = () => {
         <Navbar className="header" bg="light" expand="lg">
             <Container>
                 <Navbar.Brand as={HashLink} to="/">
-                    <img style={{ width: '100px' }} src={Brand} alt="" />
+                    <img style={{ width: '300px' }} src={Brand} alt="" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

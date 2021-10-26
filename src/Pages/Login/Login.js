@@ -6,19 +6,24 @@ import useAuth from '../../hooks/useAuth';
 import loginLogo from '../../images/logo2.png';
 import './Login.css';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
     const { signInUsingGoogle, signInUsingEmailAndPassword } = useAuth();
     const history = useHistory();
     const location = useLocation();
     const redirect_url = location.state?.form || '/';
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('');;
+    const [password, setPassword] = useState('');
+
+    const notify = () => toast.success("Login Successfully!");
 
     const handleGoogleLogin = () => {
         signInUsingGoogle()
             .then(() => {
-                history.push(redirect_url)
+                history.push(redirect_url || '/');
             })
     }
 
@@ -35,6 +40,8 @@ const Login = () => {
             .then(() => {
                 history.push(redirect_url)
             })
+
+        notify();
     }
     return (
         <div className="login-container">
