@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { HashLink } from 'react-router-hash-link';
@@ -16,21 +16,21 @@ const Header = () => {
         <Navbar className="header" bg="light" expand="lg">
             <Container>
                 <Navbar.Brand as={HashLink} to="/">
-                    <img style={{ width: '300px' }} src={Brand} alt="" />
+                    <img style={{ width: '150px' }} src={Brand} alt="" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link as={HashLink} to="/take-order">
-                            <FontAwesomeIcon className="cart-icon position-relative" icon={faCartPlus} />
-                            <span class="badge position-absolute translate-middle bg-danger border border-light">
-                                {order.length}
-                            </span>
-                        </Nav.Link>
-                        <Nav.Link as={HashLink} to="/">Home</Nav.Link>
+                        <Nav.Link className="me-2" as={HashLink} to="/">Home</Nav.Link>
                         {
                             user?.email ? (
                                 <>
+                                    <Nav.Link as={HashLink} to="/take-order">
+                                        <FontAwesomeIcon className="cart-icon position-relative" icon={faCartPlus} />
+                                        <span className="badge position-absolute translate-middle bg-danger border border-light">
+                                            {order.length}
+                                        </span>
+                                    </Nav.Link>
                                     <Nav.Link className="logout mx-3" as={HashLink} to="/" onClick={logOut}>Logout</Nav.Link>
                                     <Navbar.Text>
                                         Signed in as: <a href="#login">{user.displayName && user.displayName}</a>

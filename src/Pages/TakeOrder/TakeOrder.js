@@ -1,4 +1,3 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Button, Form } from 'react-bootstrap';
@@ -10,11 +9,13 @@ import { useHistory } from 'react-router';
 
 const TakeOrder = () => {
     const history = useHistory();
-    const { order } = useOrder();
-    const { removeOrder } = useOrder();
+    const { order, removeOrder, subtotal, quantity } = useOrder();
+    const tax = (subtotal * (7 / 100));
+    const deliveryFee = 3.00;
+    const total = (subtotal + tax + deliveryFee);
 
     const handleBack = () => {
-        history.goBack()
+        history.goBack();
     }
 
     const handleSubmit = (e) => {
@@ -24,7 +25,7 @@ const TakeOrder = () => {
     return (
         <>
             <div className="take-order-container">
-                <button className="back-btn-h" onClick={handleBack}><FontAwesomeIcon className="me-1" icon={faChevronLeft} />Back</button>
+                {/* <button className="back-btn-h" onClick={handleBack}><FontAwesomeIcon className="me-1" icon={faChevronLeft} />Back</button> */}
                 <div className="order-confirm-container">
                     <div className="login-form">
                         <div className="text-center">
@@ -41,20 +42,43 @@ const TakeOrder = () => {
                     </div>
                     <div className="confirm-add-cart">
                         {
-                            order.map((item) => (
-                                <div className="single-add-cart mb-5" key={item.id + new Date()}>
-                                    <div className="d-flex align-items-center">
-                                        <img className="me-2" src={item.img} alt="" />
-                                        <div>
-                                            <h6>{item.title}</h6>
-                                            <h4>${item.price * item.quantity}</h4>
-                                            <p>Quantity: {item.quantity}</p>
+                            order.length > 0 ? (
+                                order.map((item) => (
+                                    <div className="single-add-cart mb-3" key={item.id + new Date()}>
+                                        <div className="d-flex align-items-center">
+                                            <img className="me-2" src={item.img} alt="" />
+                                            <div>
+                                                <h6>{item.title}</h6>
+                                                <h4>${item.price * item.quantity}</h4>
+                                                <p>Quantity: {item.quantity}</p>
+                                            </div>
                                         </div>
+                                        <FontAwesomeIcon className="delete-order-item" icon={faTrash} onClick={() => removeOrder(item)} />
                                     </div>
-                                    <FontAwesomeIcon className="delete-order-item" icon={faTrash} onClick={() => removeOrder(item)} />
-                                </div>
-                            ))
+                                ))
+                            ) : (
+                                <h2 className="on-order">No Order Available</h2>
+                            )
                         }
+                    </div>
+                    <div className="pricing">
+                        <div className="d-flex justify-content-between px-3">
+                            <h6>Subtotal . <span>{quantity}</span> Item</h6>
+                            <h6>$ <span>{subtotal}</span></h6>
+                        </div>
+                        <div className="d-flex justify-content-between px-3">
+                            <h6>Tax</h6>
+                            <h6>$ <span>{tax.toFixed(2)}</span></h6>
+                        </div>
+                        <div className="d-flex justify-content-between px-3">
+                            <h6>Delivery fee</h6>
+                            <h6>$ <span>{deliveryFee}</span></h6>
+                        </div>
+                        <div className="d-flex justify-content-between px-3">
+                            <h6>Total</h6>
+                            <h6>$ <span>{total.toFixed(2)}</span></h6>
+                        </div>
+                        <Button className="w-100" variant="warning" type="submit">Place Order</Button>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,7 @@ const Foods = () => {
 
     return (
         <div>
-            <Navigation handleFoodItems={handleFoodItems} meals={meals} />
+            <Navigation id="foods" handleFoodItems={handleFoodItems} meals={meals} />
             <div className="break-fast mb-5">
                 {
                     foodItem.map(item => <SingleItem key={item.id} item={item} />)

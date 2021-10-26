@@ -41,7 +41,6 @@ const ItemDetails = () => {
         addOrder(item);
         history.push({
             pathname: '/take-order',
-            // state: { item: singleItem }
         })
     }
 
@@ -71,7 +70,7 @@ const ItemDetails = () => {
                             <button onClick={increaseQuantity} className="text-danger">+</button>
                         </div>
                     </div>
-                    <button onClick={() => handleAddItem(singleItem)} className="add-btn">
+                    <button onClick={() => handleAddItem(singleItem)} className="add-btn" >
                         <FontAwesomeIcon icon={faCartPlus} className="me-3" />
                         Add
                     </button>

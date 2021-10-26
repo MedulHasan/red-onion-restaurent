@@ -48,3 +48,6 @@
 .single-item-container img {
     width: 500px;
 }
+.btn-blur {
+    opacity: 0.5;
+}

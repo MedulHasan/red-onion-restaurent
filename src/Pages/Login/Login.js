@@ -56,7 +56,7 @@ const Login = () => {
                 </Form>
                 <Link to="/signup">Create a new account?</Link>
                 <p className="text-center fs-3">
-                    or
+                    OR
                 </p>
                 <div className="api-login">
                     <Button onClick={handleGoogleLogin} className="w-50" variant="outline-success">Google</Button>{' '}
